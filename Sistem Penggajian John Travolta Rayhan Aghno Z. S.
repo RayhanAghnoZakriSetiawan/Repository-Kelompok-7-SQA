@@ -1,0 +1,41 @@
+def sistem_finansial_mingguan():
+    print("SISTEM GAJI & EVALUASI TABUNGAN MINGGUAN JOHN TRAVOLTA")
+    
+    # Input Data 
+    nama = input("Nama Karyawan : ")
+    jam_kerja = float(input("Total Jam Kerja (mingguan) : "))
+    pengeluaran = float(input("Total Pengeluaran Minggu Ini: Rp "))
+    
+    rate_normal = 15000
+    rate_lembur = 1.5 * rate_normal
+    
+    # Logika Penggajian (Kasus Soal I)
+    if jam_kerja <= 40:
+        pemasukan = jam_kerja * rate_normal
+    else:
+        jam_lembur = jam_kerja - 40
+        pemasukan = (40 * rate_normal) + (jam_lembur * rate_lembur)
+        
+    print("\n" + "-"*45)
+    print(f"LAPORAN KEUANGAN: {nama.upper()}")
+    print("-" * 45)
+    print(f"Total Pemasukan (Gaji) : Rp {pemasukan:,.0f}")
+    print(f"Total Pengeluaran      : Rp {pengeluaran:,.0f}")
+    print("-" * 45)
+    
+    # Logika Pengambilan Keputusan Tabungan
+    if pemasukan > pengeluaran:
+        tabungan = pemasukan - pengeluaran
+        print("Status Finansial        : 'bisa menabung'")
+        print(f"Besar Tabungan Minggu Ini: Rp {tabungan:,.0f}")
+    elif pemasukan == pengeluaran:
+        print("Status Finansial        : 'tidak bisa menabung'")
+        print("Keterangan              : Keuangan impas (saldo 0).")
+    else:
+        defisit = pengeluaran - pemasukan
+        print("Status Finansial        : 'cari tambahan'")
+        print(f"Kekurangan Dana         : Rp {defisit:,.0f}")
+    print("=" * 45)
+
+# Eksekusi Program
+sistem_finansial_mingguan()
